@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2D Graphing Calculator</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.5.0/math.min.js"></script>
+    <script src="https://unpkg.com/mathjs@11.11.0/lib/browser/math.min.js"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar with controls -->
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <h1>Graphing Calculator</h1>
+                <p class="subtitle">Enter mathematical expressions to visualize functions</p>
+            </div>
+
+            <!-- Function inputs -->
+            <div class="functions-container">
+                <div class="section-header">
+                    <h3>Functions</h3>
+                    <button class="btn btn--sm btn--secondary" id="addFunctionBtn">+ Add Function</button>
+                </div>
+                <div id="functionInputs">
+                    <!-- Function inputs will be dynamically generated -->
+                </div>
+            </div>
+
+            <!-- Examples -->
+            <div class="examples-container">
+                <div class="section-header">
+                    <h4>Examples</h4>
+                </div>
+                <div class="examples-grid">
+                    <button class="example-btn" data-expression="x^2">x²</button>
+                    <button class="example-btn" data-expression="sin(x)">sin(x)</button>
+                    <button class="example-btn" data-expression="cos(x)">cos(x)</button>
+                    <button class="example-btn" data-expression="log(x)">log(x)</button>
+                    <button class="example-btn" data-expression="sqrt(x)">√x</button>
+                    <button class="example-btn" data-expression="1/x">1/x</button>
+                </div>
+            </div>
+
+            <!-- Controls -->
+            <div class="controls-container">
+                <div class="section-header">
+                    <h4>Controls</h4>
+                </div>
+
+                <div class="control-group">
+                    <h5>View</h5>
+                    <div class="control-buttons">
+                        <button class="btn btn--sm btn--outline" id="zoomInBtn">Zoom In</button>
+                        <button class="btn btn--sm btn--outline" id="zoomOutBtn">Zoom Out</button>
+                        <button class="btn btn--sm btn--outline" id="resetViewBtn">Reset View</button>
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <h5>Display</h5>
+                    <div class="checkbox-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="showGridToggle" checked>
+                            Show Grid
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="showAxesToggle" checked>
+                            Show Axes
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="showLabelsToggle" checked>
+                            Show Labels
+                        </label>
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <h5>Actions</h5>
+                    <div class="control-buttons">
+                        <button class="btn btn--sm btn--secondary" id="clearAllBtn">Clear All</button>
+                        <button class="btn btn--sm btn--primary" id="exportBtn">Export PNG</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Constants reference -->
+            <div class="constants-container">
+                <div class="section-header">
+                    <h4>Constants</h4>
+                </div>
+                <div class="constants-list">
+                    <div class="constant-item">
+                        <code>pi</code> = 3.14159...
+                    </div>
+                    <div class="constant-item">
+                        <code>e</code> = 2.71828...
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main canvas area -->
+        <div class="canvas-container">
+            <canvas id="graphCanvas" width="800" height="600"></canvas>
+            <div id="coordinates" class="coordinates-display"></div>
+            <div id="errorDisplay" class="error-display hidden"></div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>
