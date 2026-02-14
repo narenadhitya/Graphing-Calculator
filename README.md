@@ -1,5 +1,4 @@
 # 🧮 2D Graphing Calculator Web App
-#### Video Demo: https://youtu.be/kNq6L6d6YAo
 #### Description:
 An interactive, web-based tool that empowers users to visualize 2D mathematical functions in real-time. The application enables users to input custom mathematical expressions, render precise and responsive graphs, and explore them through intuitive pan and zoom controls — all within a modern and minimalistic frontend interface. The project is backed by a lightweight yet powerful Python backend built with Flask.
 
